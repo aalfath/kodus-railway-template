@@ -1,3 +1,5 @@
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/2tH3c9?utm_medium=integration&utm_source=button&utm_campaign=kodus)
+
 # Kodus on Railway
 
 A one-click [Railway](https://railway.com) template for [Kodus](https://kodus.io), the open-source AI code reviewer ("Kody") that reviews pull requests on GitHub, GitLab, Bitbucket, Azure Repos and Forgejo with the LLM key you bring.
@@ -19,6 +21,7 @@ A one-click [Railway](https://railway.com) template for [Kodus](https://kodus.io
 - Every app service builds from this repository, so Railway tells deployers when a new version is merged here.
 - All state lives on volumes or in Postgres, so it survives redeploys and restarts. RabbitMQ has a fixed node name, because Railway gives every deploy a new hostname.
 - Health checks: `web` `/api/health`, `api` and `webhooks` `/health/live`, `worker` `/health` (503 while RabbitMQ is unreachable).
+- MongoDB refuses to start without its root user and password, so it never comes up with access control off.
 - Each service's `railway-start.sh` only maps Railway's `PORT` and URLs onto Kodus's settings, and waits for the databases on first boot. Fixed Kodus settings sit in the `Dockerfile`s as `ENV` lines.
 
 ## Variables
