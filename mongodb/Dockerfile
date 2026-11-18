@@ -5,6 +5,8 @@ FROM mongo:8.2.12@sha256:e0ce8c35124d4a9f9785532d1f268f39e9728ffa1cb38f46fa48243
 # sequences (SERVER-121912); this keeps it starting on every Railway host.
 ENV GLIBC_TUNABLES=glibc.pthread.rseq=1
 
+COPY --chmod=755 railway-start.sh /usr/local/bin/railway-start.sh
+
 EXPOSE 27017
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/railway-start.sh"]
 CMD ["mongod", "--bind_ip_all", "--ipv6"]
