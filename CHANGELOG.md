@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.2.11-2 (2026-11-18)
+
+README only. Nothing to do on your project: the services, images and variables are unchanged.
+
+- The Deploy on Railway button now links to the published template (`kodus`). Publishing changed the template's code, so the old link (`2tH3c9`) returned 404.
+
 ## 2.2.11 (2026-11-18)
 
 First release of this template.
